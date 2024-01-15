@@ -1,0 +1,160 @@
+// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// © lejahmal
+
+// .................................................. plan du tutoriel ...................................................................
+
+                                                      // PRESENTATION
+                                                      // LES PARAMETRES
+                                                      // ETAPE INITIALE
+                                                      // ETUDE STANDARD
+                                                      // EXAMPLE ILLUSTRATIF
+
+
+// ------------------------------------------------------- PRESENTATION -----------------------------------------------------------------
+
+
+// le concept de l'indicateur PL est un nuage de ligne de prix basée sur les niveaux de retracement de Fibonacci 
+// qui on a servir a remplir les points des fonctions d'une matrice 7x3 dont la théorie initiale est la recherche 
+// de la main invisible d'Adam Smith au travers de multiples hypothèses mathématiques. 
+
+// pour faciliter la comprehension le nuage PL se compose de 4 groupes de donnee distincts dont l'ensemble
+// a ete soignesement ranger pour former une representation graphique soit la lettre "L" soit la lettre "P" 
+// repartie ainsi qu'il suit :
+
+//    ? GROUPE 1 et 2 represente le graphique dont les prix s'affiche le plus a gauche
+//      les prix du groupe 1 et 2 represente deux nibeaux de retracement de fibonnaci 
+//      superposee l'un sur l'autre (LES PAIRES) de tel sorte que le retracement 0.382 
+//      du premier (LONG => "de son petit nom") correspondont au retracemnt 0.5 de 
+//      l'autre (COURT) .
+
+//    ? le groupe 3 (COEUR) est le niveau de retracement avec les prix centrer au millieu 
+//      de l'indicteur ce niveau de retracement est tracer de tel sorte que le point de 
+//      jonction creer entre 0.382 LONG et 0.5 COURT donc le nom est (BASE) soit egale au 
+//      niveau 1 du COEUR.
+
+//    ? le groupe 4 (PIVOT) est en fait deux niveaux de fibonnaci distinct qui complete 
+//      les niveaux de prix des trois graphiques precedents le point de depart des pivots  
+//      est 0.786 LONG est egale a 1 PIVOT. le premier pivot est concu de tels sorte que le
+//      niveau 0.236 du PIVOT soit egale au niveau 0.5 du COEUR le second (PIVOT AJUSTER) 
+//      est trace de tel sorte que le niveau 0.618 du PIVOT soit egale a la BASE
+
+
+// ....................................................... LES PARAMETRES ..............................................................
+
+// STRATEGY    : PL se decompose en deux strategies  principale "P" et "L" et par defaut,
+//               le graphique que vous obtenez est le graphique L.
+
+// #1 PRICE    : est le prix le prix le plus haut a selectioner pour commencer l'etude
+
+// #2 PRICE    : est le prix le plus bas a selectionner pour commencer l'etude, 
+
+// AJUSTER PIVOT : checkbox a cocher pour activer l'ajustement du pivot . (nous y reviendrons)
+
+
+// -------------------------------------------------------- ETAPE INITIALE -------------------------------------------------------------
+
+// l'etude PL se decompose en deux types: l'etude standard et l'etude approfondie.
+// dans le cadre de ce tutoriel nous evoquerons uniquement l'etude standanrd 
+
+// Avant de debuter voici la convention de nommage des lignes du nuage des prix PL 
+
+// Niveau_fibonnci+Groupe | stategie 
+// la strategie n'est pas oblgatoire sauf si c'est pour specifier le niveau dans une strategie precise
+// example 05COEUR|L (represente le ligne 0.5 du groupe coeur de la startegie L)
+// example 382PIVOT|P (represente le ligne 0.382 du groupe pivot simple de la startegie P)
+// example 236PIVOTAJUSDTER|P (represente le ligne 0.236 du groupe pivot ajuster de la startegie P)
+// example 382COEUR , 618PIVOT, 786PIVOTAJUSTER , 05COURT , 382LONG , GAP|P ...
+
+
+// -------------------------------------------------------- ETUDE STANDARD -------------------------------------------------------------
+
+// le principe de l'etude standard est simple les deux droites du PL doivent etre placees de tel sorte que l'une soit static et 
+// l'autre servent de droite d'ajustement (pour ajuster faite un drag and drop de la ligne d'ajustement) 
+
+// - lors de l'etude d'une tendance a la hausse , la ligne de prix la plus basse doit etre static et le ligne de prix la plus haute
+// va servir d'ajustement.
+
+// dans une etud de la tendance a la baisse la ligne de prix la plus haute doit etre static et la ligne des prix la plus basse 
+// servira d'ajustement.
+
+// une fois affichee, l'ensemble des lignes PL se compose de trois zones 
+
+// - les deux ZONE DE DEPRESSION : la premiere entre 0COEUR et 382COEUR et le seconde entre 05COURT ET 382+ , la zone la plus 
+// basse des deux est la zone de survente et la zone la plus haute est la zone de surachat dependament de la strategie en cours
+// de lecture.
+
+// la ZONE DE PRESSION c'est la zone qui separe les deux zones precedentes elles se situee entre entre 382COEUR et 382+ 
+// c'est la zone ou les market maker se  livrent a la bataille des prix pour forcer l'evolution du marche dans 
+// un sens ou dans l'autre. cette zone de prix foment une zone de CORRESPONDANCE en effet le prix de l'une est  
+// correspondante (approxiamtivement egale on y reviendra) au prix de l'autre lors du changement de strategie c'est a dire que par
+// example , le prix de 382COEUR|P est presque egale au prix 382+|L et inversemment .
+
+// les ZONES DE CORRESPONDANCE , ils en existent plusieurs dans le graphique PL donc les plus significatives sont :
+
+// 236COEUR/236+
+// BRK/OPIVOT 
+// COR/618PIVOT 
+// 05COEUR/786COEUR 
+// 618COEUR/382PIVOT 
+// 05PIVOT/236PIVOTAJUSTER
+
+//entre ces zone de correspondances se trouve chacune une ZONE DE TENSION 
+
+// la ZONE de TENSION est en fait le range dans lesquel evoluent les prix en aller retour lorque le cours se trouve dans la 
+// zone de pression. le princique est que lorsque les prix traverse la zone de tension dans le sens de la tendance, 
+// la tendance est alors dite "confirmer". le cours va se heurter a un premier niveau de correction puis faire un retour 
+// legerement en dessous du prix de la ligne de tension qui a ete casser c'est ce que j'appel un PRIX DE REVIENT qui
+// est en fait un premier niveau de retracement avant la reprise vers un 2 ieme niveau de correction encore plus loin .
+// cependant si ce premier niveau de correction n'est pas solide pour breaker le prix alors je qualifie le marche de 
+// MARCHE EN MARCHE c'est dire que les investisseurs ont des nouvelles qui laissent croire que l'actif 
+// est promis a des jours radieux il est alors important de reporter ce premier niveau de correction a la moite du prix
+// situee entre la premiere ligne de 1iere correction et de la correspondance du curseur.
+
+// il peut arriver que dans la zone de tension, le prix cede plutot la ligne de tension dans le sens contraire du marche 
+// on dis alors que le marche A CEDER A LA PRESSION DES CONTRAIRE. les dominant du marche on alors perdu la main et le prix
+// evoluera donc en contre tendance c'est gereralement le cas des effets d'annonces qui suprenne le marche ou encore lorque 
+// un ordre baleine est passer sur un marche peut liquide ... il est donc tres important dans une zone de tension 
+// d'observer les cassures qui ont lieu au niveau des lignes de tension (LIGNE DE HAUTE TENSION la ligne la plus haute de 
+/// la tension et LIGNE DE BASSE TENSION la ligne la plus basse de la tension).
+
+// une fois que le prix a quitter la zone de tension apres etre revenu au prix de revient comme ce sera generalement le cas 
+// si la tendance ne subi pas une pertubation majeure c'est a dire ne cede pas la pression des contraires (voir plus haut)
+// le cours de l'actif va evoluer dans la tendance dominante pour rejoindre un deuxieme niveau de correction . ce deuxieme niveau 
+// de correction generalement va marquer le retournement de tendance . mais il peut arriver que la tendance traverse se 2ieme point
+// de break pour poursuivre son mouvement je qualifie alors l'actif DE MARCHE QUI A LE VENT EN POUPE car la confiance des investisseurs 
+// est desormais le nouveau moteur de l'actif .
+
+//.................................................................................................................................
+// il ressort dont de ce qui precede que tout l'art de l'etude standard est de trouver la zone de tension qui se situe dans     ...
+// la zone de pression en partant d'une ligne de correspondnace significative. c'est ce que j'appel la REGLE ALPHA du PL        ...
+//.................................................................................................................................
+
+//  pour ce faire , placer votre PL,  faite glisser la ligne d'ajustement de tels sorte que une ligne de correspondance
+// significative corresponde a un point de prix significatif le la structure des prix du marche par example un break ,
+// un retracement , une ressitance ou un break solide (c'est a dire ayant ete confirmer au moins 2 fois voir plus de 3 fois) 
+// rechercher la zone de tension significative ( c'est a dire la zone dans laquel le prix a fais un aller retour au moins une fois 
+// avant de poursuivre dans le sens de la tendance ). A partir la zone de correspondance qui vous sert de curseur, proceder a la 
+// lecture du prix de revient et du du deuxieme point de correction .
+
+
+// ............................................................. EXAMPLE ILLUSTRATIF ...................................................
+
+/// sur cette courbe CAKE/USD vous pouvez faire la lecture suivante
+
+//..........................................................................................................................
+// STRATEGIE                    .               P                            .               L                             .      
+//..........................................................................................................................
+//  CURSEUR                     .           BRK|P                            .           0PIVOT|L                          .
+//  CORRESPONDANCE              .          BRK/0PIVOT                        .           0PIVOT/BRK                        .
+//  PRESION                     .          BRK/COR                           .           OPIVOT/618PIVOT                   .
+//  TENSION                     .          BRK/05PIVOT                       .          0PIVOT/236PIVOTAJUSTER             .
+//  CORRECTION 1                .        618COEU|P a partir de 236COEUR      .         786COEUR|L a partir de BRK          .
+//  PRIX DE REVIENT             .          382COEUR|P                        .               382+|L                        .
+//  CORRECTION 2                .           COR|P                            .              618PIVOT|L                     .
+// .........................................................................................................................
+
+
+// NB: ceci ne constitue en aucun cas un conseil en investissement. Pourque ces informations decrites plus haut 
+//     constituent un conseil financier, d'investissement ou commercial, il faudrais que l'etude qui en decoule 
+//     soit approuvee par contrat ecris par l'auteur. De ce fait, aucune responsabilite ne saurais etre engagee 
+//     contre l'auteur sans la preuve  du consentement susmentione.
