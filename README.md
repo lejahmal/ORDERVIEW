@@ -8,23 +8,17 @@ Here's a step-by-step guide:
 
 Install Java:
 
- depending of your computer settings for X64 install 
+depending of your computer settings for X64 install 
 jdk-8u381-windows-x64
 jre-8u381-windows-x64
 or Download JDK and JRE from the Oracle website.
 
 instructions.
 Locate the Java Installation Directory:
-
-Typically, it's in C:\Program Files\Java\jre-x.x.x, where x.x.x is the 
-
-version number.
+Typically, it's in C:\Program Files\Java\jre-x.x.x, where x.x.x is the version number.
 
 
-............................Set the JAVA_HOME Environment Variable:
-
-.......
-.................................
+........................................Set the JAVA_HOME Environment Variable:..............................................
 
 Open System Properties
 Right-click on "Computer" and select "Properties
@@ -35,45 +29,33 @@ Create a New System Variable:
 Under "System variables," 
 click "New."
 In the "Variable name" field, type: JAVA_HOME
- In the "Variable value" field, paste the path to your JDK 
-
-installation directory. it will be C:\Program Files\Java\jdk-x.x.x
- Click "OK" 
+In the "Variable value" field, paste the path to your JDK installation directory. it will be C:\Program Files\Java\jdk-x.x.x
+Click "OK" 
 
 Create a New System Variable:
 Under "System variables," 
 click "New."
 In the "Variable name" field, type: CLASSPATH In the "Variable value" field, paste the path to your JRE 
-
 installation directory. it will be C:\Program Files (x86)\Java\jreX\lib\ext\QTJava.zip
- Click "OK" 
+Click "OK" 
 
 
-...............................to save and 
-Edit the System Path Variable:
-
-.....................................................
+...............................to save and Edit the System Path Variable:.....................................................
 
 Find the Path Variable: In the same "Environment Variables" window, 
 find the "Path" variable under "System variables" and 
 click "Edit."
 
 Add the JRE bin Directory:
-
 Click "New" and paste the path to your JRE's bin directory. This is usually C:\Program Files\Java\jre-x.x.x\bin.
-
 Click "OK" to save the changes.
 
 
 ...............................................Optional: Verify the Installation:..........................................
 
-
 Open a new command prompt window.
-
 Type java -version and press Enter.
-
 If the JRE is installed correctly, you should see the Java version information.
-
 
 ......................................  install ORDERVIEW and folders ..................................................... 
 
@@ -93,7 +75,7 @@ copy this following line header
 
 Date 	Open 	High 	        Low 	        Close Adj       Close          Adjusted close   Volume
 
-remove all header stuff in the data you have copy and replace it by this previous line . file will starting by 
+remove all header stuff in the data you have copy and replace it by this previous line . file will look  
 something like this
 
 Date 	Open 	High 	        Low 	        Close Adj       Close          Adjusted close   Volume
