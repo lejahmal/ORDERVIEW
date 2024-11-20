@@ -85,7 +85,7 @@ copy this following line header
 
 Date 	Open 	High 	        Low 	        Close Adj       Close          Adjusted close   Volume
 
-remove all header stuff in the data you have copy and replace it by this previous line . file will starting by 
+remove all header stuff in the data you have copy and replace it by this previous line . file will look 
 something like this
 
 Date 	Open 	High 	        Low 	        Close Adj       Close          Adjusted close   Volume
