@@ -2,9 +2,7 @@ installation
 
 Here's a step-by-step guide:
 
-
-
-Install Java:
+............................................................Install Java:......................................................................
 
  depending of your computer settings for X64 install 
 jdk-8u381-windows-x64
@@ -17,10 +15,7 @@ Locate the Java Installation Directory:
 Typically, it's in C:\Program Files\Java\jre-x.x.x, where x.x.x is the version number.
 
 
-............................Set the JAVA_HOME Environment Variable:
-
-.......
-.................................
+..................................................Set the JAVA_HOME Environment Variable: ..................................................
 
 Open System Properties
 Right-click on "Computer" and select "Properties
@@ -41,10 +36,7 @@ In the "Variable name" field, type: CLASSPATH In the "Variable value" field, pas
  Click "OK" 
 
 
-...............................to save and 
-Edit the System Path Variable:
-
-.....................................................
+...................................................to save and Edit the System Path Variable:.....................................................
 
 Find the Path Variable: In the same "Environment Variables" window, 
 find the "Path" variable under "System variables" and 
@@ -57,7 +49,7 @@ Click "New" and paste the path to your JRE's bin directory. This is usually C:\P
 Click "OK" to save the changes.
 
 
-...............................................Optional: Verify the Installation:..........................................
+.....................................................Optional: Verify the Installation:............................................................
 
 
 Open a new command prompt window.
@@ -67,13 +59,13 @@ Type java -version and press Enter.
 If the JRE is installed correctly, you should see the Java version information.
 
 
-......................................  install ORDERVIEW and folders ..................................................... 
+.......................................................  install ORDERVIEW and folders ............................................................. 
 
 create a Directory C:\OrderView
 locale your OrderView.exe file 
 double click to open
 
-...........................Example of how to create offline and plot data in orderview to get chart .......................
+...........................................Example of how to create offline and plot data in orderview to get chart ................................
 
 
 in this directory C:\OrderView add manually .txt file for example create CAC40.txt
