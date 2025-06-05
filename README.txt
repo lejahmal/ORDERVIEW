@@ -72,6 +72,7 @@ in this directory C:\OrderView add manually .txt file for example create CAC40.t
 
 With YAHOO FINANCE
 go to yahoo https://finance.yahoo.com/quote/%5EFCHI/history/ using mozilla firefox browser
+keep times frame "Daily" edit the date interval depending to your need 
 click "Toggle reader View" button in mozilla firefox toolbar 
 copy all data using Ctrl+A and Ctrl+C and paste it into CAC40.txt file 
 REMOVE THE LAST EMPTY LINE AFTER COPY ALL DATE IN THE FILE
